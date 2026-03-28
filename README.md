@@ -176,19 +176,3 @@ uploads/      User-generated uploads
 cache/        Runtime cache output
 ```
 
-## Before You Push To GitHub
-
-- do not commit `.env`
-- do not commit real user uploads
-- do not commit logs or runtime cache output
-- sanitize any private database dump before sharing it
-- replace real branding/contact values with shareable examples if needed
-
-## Documentation
-
-- [FEATURES.md](./FEATURES.md)
-- [feature_roadmap.md](./feature_roadmap.md)
-
-## Notes
-
-This repository is now structured for public sharing. If you are preparing a real public release, do one more manual pass over uploads, screenshots, and any environment-specific assets before publishing.
