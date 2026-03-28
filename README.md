@@ -1,11 +1,9 @@
 # NeighbourNet
 
-![NeighbourNet Header](./header.webp)
-
 A PHP-based community platform that brings together social features, events, local guides, business listings, community tools, and utility services.
 
-![NeighbourNet Logo](./logo.jpg)
-
+<img src="https://komarev.com/ghpvc/?username=devrimudeniz&color=brightgreen" alt="watching_count" />
+<img src="https://img.shields.io/github/stars/devrimudeniz?label=Stars" alt="stars">
 ## Overview
 
 NeighbourNet combines a social feed with practical local services. The project includes public community features, business-focused tools, and an admin panel for moderation and platform management.
