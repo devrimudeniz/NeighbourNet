@@ -162,7 +162,7 @@ $section_labels = [
             </div>
         </div>
         <div style="display:flex;gap:8px;">
-            <a href="../index" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;border-radius:8px;background:#1e293b;color:#94a3b8;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">
+            <a href="<?php echo htmlspecialchars(site_url()); ?>" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;border-radius:8px;background:#1e293b;color:#94a3b8;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">
                 <i class="fas fa-home"></i> Siteye Git
             </a>
             <a href="logout" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;border-radius:8px;background:#1e293b;color:#94a3b8;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.background='#7f1d1d';this.style.color='#fca5a5'" onmouseout="this.style.background='#1e293b';this.style.color='#94a3b8'">

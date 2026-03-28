@@ -5,8 +5,9 @@
  */
 header("Content-Type: application/xml; charset=utf-8");
 require_once 'includes/db.php';
+require_once 'includes/site_settings.php';
 
-$baseUrl = "https://kalkansocial.com";
+$baseUrl = site_url();
 $today = date('Y-m-d');
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';

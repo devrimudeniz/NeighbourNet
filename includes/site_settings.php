@@ -7,8 +7,8 @@ require_once __DIR__ . '/env.php';
 
 if (!function_exists('default_site_settings')) {
     function default_site_settings() {
-        $appName = (string) env_value('SITE_NAME', 'Kalkan Social');
-        $shortName = (string) env_value('SITE_SHORT_NAME', preg_replace('/\s+/', '', $appName) ?: 'KalkanSocial');
+        $appName = (string) env_value('SITE_NAME', 'NeighbourNet');
+        $shortName = (string) env_value('SITE_SHORT_NAME', preg_replace('/\s+/', '', $appName) ?: 'NeighbourNet');
 
         return [
             'site_name' => $appName,
@@ -48,6 +48,25 @@ if (!function_exists('ensure_site_settings_table')) {
 
         foreach ($defaults as $key => $value) {
             $stmt->execute([$key, $value]);
+        }
+
+        // One-time migration for legacy public defaults.
+        $legacyMap = [
+            'site_name' => 'Kalkan Social',
+            'site_short_name' => 'KalkanSocial',
+            'app_url' => 'http://localhost/kalkansocial',
+        ];
+
+        $updateStmt = $pdo->prepare("
+            UPDATE site_settings
+            SET setting_value = ?
+            WHERE setting_key = ? AND (setting_value = ? OR setting_value = '')
+        ");
+
+        foreach ($legacyMap as $key => $legacyValue) {
+            if (isset($defaults[$key])) {
+                $updateStmt->execute([$defaults[$key], $key, $legacyValue]);
+            }
         }
 
         $ensured = true;
@@ -101,7 +120,7 @@ if (!function_exists('site_setting')) {
 
 if (!function_exists('site_name')) {
     function site_name() {
-        return site_setting('site_name', 'Kalkan Social');
+        return site_setting('site_name', 'NeighbourNet');
     }
 }
 
@@ -128,5 +147,18 @@ if (!function_exists('site_title')) {
 if (!function_exists('site_support_email')) {
     function site_support_email() {
         return site_setting('support_email', 'hello@example.com');
+    }
+}
+
+if (!function_exists('site_url')) {
+    function site_url() {
+        return rtrim(site_setting('app_url', app_url()), '/');
+    }
+}
+
+if (!function_exists('site_host')) {
+    function site_host() {
+        $host = parse_url(site_url(), PHP_URL_HOST);
+        return $host ?: ($_SERVER['HTTP_HOST'] ?? 'localhost');
     }
 }

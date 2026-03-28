@@ -5,6 +5,7 @@ require_once 'includes/cdn_helper.php';
 require_once 'includes/lang.php';
 require_once 'includes/icon_helper.php';
 require_once 'includes/ui_components.php';
+require_once 'includes/site_settings.php';
 
 // $lang is already set by lang.php
 
@@ -30,9 +31,10 @@ if (!$business) {
 
 // Generate QR code URL - use subdomain if approved, otherwise use /menu/ path
 if (!empty($business['subdomain']) && $business['subdomain_status'] === 'approved') {
-    $menu_url = "https://" . $business['subdomain'] . ".kalkansocial.com";
+    $host = parse_url(site_url(), PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? 'localhost');
+    $menu_url = "https://" . $business['subdomain'] . "." . preg_replace('/^www\./', '', $host);
 } else {
-    $menu_url = "https://kalkansocial.com/menu/" . $business_id;
+    $menu_url = site_url() . "/menu/" . $business_id;
 }
 
 // QR Code API (using QR Server API - free)
@@ -105,7 +107,7 @@ $qr_code_download = "https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&
                         <span class="font-mono"><?php echo $menu_url; ?></span>
                     </div>
                     <div class="text-xs text-slate-400 dark:text-slate-500">
-                        Powered by Kalkan Social
+                        Powered by <?php echo htmlspecialchars(site_name()); ?>
                     </div>
                 </div>
             </div>

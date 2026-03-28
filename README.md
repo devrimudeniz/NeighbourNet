@@ -1,12 +1,14 @@
 # NeighbourNet
 
+![NeighbourNet Header](./header.webp)
 
-A PHP-based local community platform that brings together social features, events, local guides, business listings, community tools, and utility services for the Kalkan area.
+A PHP-based community platform that brings together social features, events, local guides, business listings, community tools, and utility services.
 
+![NeighbourNet Logo](./logo.jpg)
 
 ## Overview
 
-Kalkan Social combines a social feed with practical local services. The project includes public community features, business-focused tools, and an admin panel for moderation and platform management.
+NeighbourNet combines a social feed with practical local services. The project includes public community features, business-focused tools, and an admin panel for moderation and platform management.
 
 Recent GitHub-prep improvements include:
 
@@ -58,12 +60,12 @@ Copy [`.env.example`](./.env.example) to `.env` and fill in your local values.
 Example:
 
 ```env
-APP_URL=http://localhost/kalkansocial
-SITE_NAME=Kalkan Social
-SITE_SHORT_NAME=KalkanSocial
+APP_URL=http://localhost/NeighbourNet
+SITE_NAME=NeighbourNet
+SITE_SHORT_NAME=NeighbourNet
 
 DB_HOST=127.0.0.1
-DB_NAME=kalkansocial
+DB_NAME=neighbournet
 DB_USER=root
 DB_PASS=
 

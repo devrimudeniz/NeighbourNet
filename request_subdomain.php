@@ -181,8 +181,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="font-bold text-emerald-700 dark:text-emerald-300 mb-1">
                                 <?php echo $lang == 'en' ? 'Your subdomain is active!' : 'Subdomain\'iniz aktif!'; ?>
                             </div>
-                            <a href="https://<?php echo htmlspecialchars($business['subdomain']); ?>.kalkansocial.com" target="_blank" class="text-sm text-emerald-600 dark:text-emerald-400 hover:underline">
-                                <?php echo htmlspecialchars($business['subdomain']); ?>.kalkansocial.com
+                            <a href="https://<?php echo htmlspecialchars($business['subdomain']); ?>.<?php echo htmlspecialchars(preg_replace('/^www\./', '', site_host())); ?>" target="_blank" class="text-sm text-emerald-600 dark:text-emerald-400 hover:underline">
+                                <?php echo htmlspecialchars($business['subdomain']); ?>.<?php echo htmlspecialchars(preg_replace('/^www\./', '', site_host())); ?>
                                 <i class="fas fa-external-link-alt ml-1"></i>
                             </a>
                         </div>
@@ -218,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             oninput="this.value = this.value.toLowerCase().replace(/[^a-z0-9-]/g, '')"
                         >
                         <span class="text-slate-600 dark:text-slate-400 font-bold whitespace-nowrap">
-                            .kalkansocial.com
+                            .<?php echo htmlspecialchars(preg_replace('/^www\./', '', site_host())); ?>
                         </span>
                     </div>
                     <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">

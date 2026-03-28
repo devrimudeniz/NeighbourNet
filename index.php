@@ -1,13 +1,16 @@
 <?php
 session_start();
 require_once 'includes/db.php';
+require_once 'includes/site_settings.php';
 
 // Check for subdomain routing FIRST
 $host = $_SERVER['HTTP_HOST'] ?? '';
 $parts = explode('.', $host);
 
 // If it's a subdomain (not www or main domain), route to subdomain handler
-if (count($parts) >= 3 && $parts[0] !== 'www' && $parts[1] === 'kalkansocial') {
+$mainHostParts = explode('.', preg_replace('/^www\./', '', site_host()));
+$mainRoot = count($mainHostParts) >= 2 ? $mainHostParts[count($mainHostParts) - 2] : ($mainHostParts[0] ?? '');
+if (count($parts) >= 3 && $parts[0] !== 'www' && ($parts[1] ?? '') === $mainRoot) {
     require_once 'subdomain_handler.php';
     exit();
 }
@@ -269,7 +272,7 @@ try {
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-black text-slate-800 dark:text-slate-800 text-base md:text-lg mb-1">
-                        <?php echo $lang == 'en' ? 'Kalkan Social just launched!' : 'Kalkan Social yeni açıldı!'; ?>
+                        <?php echo $lang == 'en' ? site_name() . ' just launched!' : site_name() . ' yeni acildi!'; ?>
                         <span style="display:inline-block;background:#0055FF;color:#fff;font-size:10px;padding:2px 8px;border-radius:6px;vertical-align:middle;margin-left:6px;"><?php echo $lang == 'en' ? 'NEW' : 'YENİ'; ?></span>
                     </h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
@@ -1076,7 +1079,7 @@ try {
                         </div>
                         <div>
                             <h3 class="font-bold text-slate-800 dark:text-slate-200"><?php echo $lang == 'en' ? 'About Us' : 'Hakkımızda'; ?></h3>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5"><?php echo $lang == 'en' ? 'Get to know the team behind Kalkan Social' : 'Kalkan Social ekibini yakından tanıyın'; ?></p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5"><?php echo $lang == 'en' ? 'Get to know the team behind ' . site_name() : site_name() . ' ekibini yakindan taniyin'; ?></p>
                         </div>
                     </div>
                     <div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-400 group-hover:bg-[#0055FF] group-hover:text-white transition-all">
@@ -1327,7 +1330,7 @@ try {
             <i class="fas fa-times text-xs" aria-hidden="true"></i>
         </button>
         <div class="flex items-start gap-4 mb-4">
-            <img src="/logo.jpg" alt="Kalkan Social" class="w-14 h-14 flex-shrink-0 bg-white/10 rounded-2xl p-2">
+            <img src="/logo.jpg" alt="<?php echo htmlspecialchars(site_name()); ?>" class="w-14 h-14 flex-shrink-0 bg-white/10 rounded-2xl p-2">
             <div>
                 <h3 class="font-bold text-lg mb-1"><?php echo $lang == 'en' ? 'Install Our App!' : 'Uygulamamızı Yükle!'; ?></h3>
                 <p class="text-sm text-white/90"><?php echo $lang == 'en' ? 'Add to your home screen for quick access!' : 'Ana ekranınıza ekleyin, hızlı erişim!'; ?></p>
@@ -1349,7 +1352,7 @@ try {
         </div>
         <div class="flex items-start gap-4 mb-5">
             <div class="w-16 h-16 flex-shrink-0 rounded-2xl p-2 flex items-center justify-center" style="background: #0055FF;">
-                <img src="/logo.jpg" alt="Kalkan Social" class="w-full h-full object-contain rounded-xl">
+                <img src="/logo.jpg" alt="<?php echo htmlspecialchars(site_name()); ?>" class="w-full h-full object-contain rounded-xl">
             </div>
             <div class="flex-1 pr-12">
                 <h3 class="font-black text-xl mb-2" style="color: #0055FF;"><?php echo $lang == 'en' ? 'Install on iPhone' : 'iPhone\'a Yükle'; ?></h3>
@@ -1634,7 +1637,7 @@ try {
                             console.log('✅ Permission granted! Showing test notification...');
                             if ('serviceWorker' in navigator) {
                                 navigator.serviceWorker.ready.then(function(registration) {
-                                    registration.showNotification('Kalkan Social 🔔', {
+                                    registration.showNotification('<?php echo addslashes(site_name()); ?> Notification', {
                                         body: '<?php echo $lang == "en" ? "Notifications are enabled!" : "Bildirimler aktif!"; ?>',
                                         icon: '/icon-192.png',
                                         vibrate: [200, 100, 200]
@@ -2386,3 +2389,6 @@ if (isset($_SESSION['show_welcome_tour']) && $_SESSION['show_welcome_tour'] === 
 
 </body>
 </html>
+
+
+

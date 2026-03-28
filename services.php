@@ -35,7 +35,7 @@ require_once 'includes/ui_components.php';
                 <?php echo $lang == 'en' ? 'All Services' : 'Tüm Hizmetler'; ?>
             </h1>
             <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm md:text-base">
-                <?php echo $lang == 'en' ? 'Everything you need for life in Kalkan' : 'Kalkan\'da yaşam için ihtiyacınız olan her şey'; ?>
+                <?php echo $lang == 'en' ? 'Everything your community needs in one place' : 'Kalkan\'da yaşam için ihtiyacınız olan her şey'; ?>
             </p>
         </div>
 
@@ -233,16 +233,6 @@ require_once 'includes/ui_components.php';
                 <?php echo $lang == 'en' ? 'Explore & Activities' : 'Keşfet & Aktiviteler'; ?>
             </h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                
-                <!-- Trail Mate -->
-                <a href="trail_mate" class="group bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all hover:scale-105">
-                    <div class="w-12 h-12 md:w-14 md:h-14 bg-amber-50 dark:bg-amber-900/20 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                        <?php echo heroicon('hiking', 'text-2xl md:text-3xl text-amber-600'); ?>
-                    </div>
-                    <h3 class="font-bold text-sm md:text-base text-center text-slate-700 dark:text-slate-200"><?php echo $t['trail_mate']; ?></h3>
-                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-1"><?php echo $lang == 'en' ? 'Hiking Trails' : 'Yürüyüş Parkurları'; ?></p>
-                </a>
-
                 <!-- Happy Hour / Nightlife -->
                 <a href="happy_hour" class="group bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:border-violet-300 dark:hover:border-violet-700 transition-all hover:scale-105">
                     <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-50 dark:bg-violet-900/20 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
@@ -251,17 +241,6 @@ require_once 'includes/ui_components.php';
                     <h3 class="font-bold text-sm md:text-base text-center text-slate-700 dark:text-slate-200"><?php echo $lang == 'en' ? 'Nightlife' : 'Gece Hayatı'; ?></h3>
                     <p class="text-[10px] md:text-xs text-slate-400 text-center mt-1"><?php echo $lang == 'en' ? 'Bars & Events' : 'Barlar & Etkinlikler'; ?></p>
                 </a>
-
-                <!-- Time Travel (Coming Soon) -->
-                <div class="group bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 opacity-90">
-                    <div class="relative w-12 h-12 md:w-14 md:h-14 bg-amber-50 dark:bg-amber-900/20 rounded-2xl flex items-center justify-center mx-auto mb-3">
-                        <?php echo heroicon('clock', 'text-2xl md:text-3xl text-amber-500'); ?>
-                        <span class="absolute -top-2 -right-2 bg-amber-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold shadow-sm">SOON</span>
-                    </div>
-                    <h3 class="font-bold text-sm md:text-base text-center text-slate-700 dark:text-slate-200"><?php echo $lang == 'en' ? 'Time Travel' : 'Zaman Yolculuğu'; ?></h3>
-                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-1"><?php echo $lang == 'en' ? 'Coming Soon' : 'Çok Yakında'; ?></p>
-                </div>
-
                 <!-- What to Do Guide -->
                 <a href="what_to_do.php" class="group bg-gradient-to-br from-blue-500 to-cyan-500 p-4 md:p-6 rounded-2xl shadow-lg border border-blue-400 hover:shadow-xl hover:scale-105 transition-all">
                     <div class="w-12 h-12 md:w-14 md:h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
@@ -289,7 +268,7 @@ require_once 'includes/ui_components.php';
         <section class="mb-8">
             <h2 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
                 <i class="fas fa-trophy w-5 h-5 text-yellow-500"></i>
-                Kalkan <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">Snaps</span>
+                NeighbourNet <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">Snaps</span>
             </h2>
             
             <!-- Photo Contest Promo Card -->
@@ -317,7 +296,7 @@ require_once 'includes/ui_components.php';
                            <i class="fas fa-trophy"></i> <?php echo $lang == 'en' ? 'Photo of the Week' : 'Haftanın Fotoğrafı'; ?>
                        </div>
                        <h3 class="text-2xl md:text-3xl font-black text-white mb-2 truncate max-w-lg shadow-black drop-shadow-md">
-                           Kalkan <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400">Snaps</span>
+                           NeighbourNet <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400">Snaps</span>
                        </h3>
                        <div class="flex items-center gap-3 mt-2">
                             <img src="<?php echo htmlspecialchars($latest_winner['avatar']); ?>" class="w-10 h-10 rounded-full border-2 border-white shadow-md">
@@ -338,7 +317,7 @@ require_once 'includes/ui_components.php';
                            <div class="inline-flex items-center gap-2 bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-white/20">
                                📸 <?php echo $lang == 'en' ? 'New Feature' : 'Yeni Özellik'; ?>
                            </div>
-                           <h3 class="text-2xl md:text-3xl font-black text-white mb-2">Kalkan <span class="text-pink-300">Snaps</span></h3>
+                           <h3 class="text-2xl md:text-3xl font-black text-white mb-2">NeighbourNet <span class="text-pink-300">Snaps</span></h3>
                            <p class="text-white/80 max-w-md text-sm md:text-base">
                                <?php echo $lang == 'en' ? 'Share your best photos of Kalkan. Win badges and fame!' : 'En güzel Kalkan fotoğraflarını paylaş. Rozet ve şöhret kazan!'; ?>
                            </p>
@@ -360,16 +339,6 @@ require_once 'includes/ui_components.php';
                 <?php echo $lang == 'en' ? 'Learn & Connect' : 'Öğren & Bağlan'; ?>
             </h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                
-                <!-- Lingo -->
-                <a href="lingo" class="group bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:border-indigo-300 dark:hover:border-indigo-700 transition-all hover:scale-105">
-                    <div class="w-12 h-12 md:w-14 md:h-14 bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                        <?php echo heroicon('language', 'text-2xl md:text-3xl text-indigo-500'); ?>
-                    </div>
-                    <h3 class="font-bold text-sm md:text-base text-center text-slate-700 dark:text-slate-200"><?php echo $lang == 'en' ? 'Lingo Cards' : 'Pratik Sözlük'; ?></h3>
-                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-1"><?php echo $lang == 'en' ? 'Learn Turkish' : 'Dil Öğren'; ?></p>
-                </a>
-
                 <!-- Members -->
                 <a href="members" class="group bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:border-blue-300 dark:hover:border-blue-700 transition-all hover:scale-105">
                     <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
@@ -395,150 +364,6 @@ require_once 'includes/ui_components.php';
                     </div>
                     <h3 class="font-bold text-sm md:text-base text-center text-slate-700 dark:text-slate-200"><?php echo $lang == 'en' ? 'News' : 'Haberler'; ?></h3>
                     <p class="text-[10px] md:text-xs text-slate-400 text-center mt-1"><?php echo $lang == 'en' ? 'Local News' : 'Yerel Haberler'; ?></p>
-                </a>
-                
-            </div>
-        </section>
-
-            </div>
-        </section>
-
-        <!-- AI Tools Section -->
-        <?php
-        $isDark = defined('CURRENT_THEME') && CURRENT_THEME == 'dark';
-        $ait_card_bg = $isDark ? '#1e293b' : '#ffffff';
-        $ait_card_border = $isDark ? '#334155' : '#e2e8f0';
-        $ait_title_color = $isDark ? '#f1f5f9' : '#0f172a';
-        $ait_desc_color = $isDark ? '#94a3b8' : '#475569';
-        $ait_quote_color = $isDark ? '#64748b' : '#64748b';
-        $ait_chevron_color = $isDark ? '#94a3b8' : '#94a3b8';
-        $ait_badge_bg = $isDark ? 'rgba(99,102,241,0.15)' : '#eef2ff';
-        $ait_icon_bg_indigo = $isDark ? 'rgba(99,102,241,0.15)' : '#eef2ff';
-        $ait_icon_bg_green = $isDark ? 'rgba(34,197,94,0.15)' : '#f0fdf4';
-        $ait_icon_bg_amber = $isDark ? 'rgba(245,158,11,0.15)' : '#fffbeb';
-        $ait_icon_bg_blue = $isDark ? 'rgba(59,130,246,0.15)' : '#eff6ff';
-        $ait_icon_bg_rose = $isDark ? 'rgba(225,29,72,0.15)' : '#fff1f2';
-        ?>
-        <section class="mb-8">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-                <h2 style="font-size:18px;font-weight:800;color:<?php echo $ait_title_color; ?>;margin:0;display:flex;align-items:center;gap:8px;">
-                    <i class="fas fa-robot" style="color:#6366f1;font-size:16px;"></i>
-                    <?php echo $lang == 'en' ? 'AI Tools' : 'Yapay Zeka Araçları'; ?>
-                </h2>
-                <span style="padding:3px 10px;border-radius:6px;font-size:10px;font-weight:700;background:<?php echo $ait_badge_bg; ?>;color:#6366f1;">
-                    <?php echo $lang == 'en' ? 'FREE' : 'ÜCRETSİZ'; ?>
-                </span>
-            </div>
-            <p style="font-size:12px;color:#94a3b8;margin:0 0 14px;line-height:1.5;">
-                <?php echo $lang == 'en' 
-                    ? 'Smart assistants powered by AI. Just ask a question or upload a photo — they do the hard work for you!'
-                    : 'Yapay zeka destekli akıllı asistanlar. Soru sorun veya fotoğraf yükleyin — zor işi onlar yapsın!'; ?>
-            </p>
-            <div style="display:flex;flex-direction:column;gap:10px;">
-                
-                <!-- Paperwork Helper -->
-                <a href="paperwork.php" style="display:flex;align-items:center;gap:14px;padding:14px;background:<?php echo $ait_card_bg; ?>;border:1px solid <?php echo $ait_card_border; ?>;border-radius:14px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="width:48px;height:48px;border-radius:12px;background:<?php echo $ait_icon_bg_indigo; ?>;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <i class="fas fa-file-contract" style="font-size:20px;color:#6366f1;"></i>
-                    </div>
-                    <div style="flex:1;min-width:0;">
-                        <h3 style="font-size:14px;font-weight:800;margin:0 0 2px;color:<?php echo $ait_title_color; ?>;"><?php echo $lang == 'en' ? 'Paperwork Helper' : 'Evrak Asistanı'; ?></h3>
-                        <p style="font-size:12px;color:<?php echo $ait_desc_color; ?>;margin:0;line-height:1.4;">
-                            <?php echo $lang == 'en' 
-                                ? 'Upload a bill, contract or official document — AI reads it and explains what it says in plain English.'
-                                : 'Fatura, sözleşme veya resmi belgeyi yükleyin — yapay zeka okuyup size sade bir dille açıklasın.'; ?>
-                        </p>
-                        <p style="font-size:11px;color:<?php echo $ait_quote_color; ?>;margin:4px 0 0;font-style:italic;">
-                            <?php echo $lang == 'en' 
-                                ? '"I got a water bill in Turkish, is this normal?"'
-                                : '"Türkçe su faturası geldi, normal mi bu tutar?"'; ?>
-                        </p>
-                    </div>
-                    <i class="fas fa-chevron-right" style="color:<?php echo $ait_chevron_color; ?>;font-size:12px;flex-shrink:0;"></i>
-                </a>
-
-                <!-- Grocery Scout -->
-                <a href="grocery.php" style="display:flex;align-items:center;gap:14px;padding:14px;background:<?php echo $ait_card_bg; ?>;border:1px solid <?php echo $ait_card_border; ?>;border-radius:14px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="width:48px;height:48px;border-radius:12px;background:<?php echo $ait_icon_bg_green; ?>;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <i class="fas fa-shopping-basket" style="font-size:20px;color:#22c55e;"></i>
-                    </div>
-                    <div style="flex:1;min-width:0;">
-                        <h3 style="font-size:14px;font-weight:800;margin:0 0 2px;color:<?php echo $ait_title_color; ?>;"><?php echo $lang == 'en' ? 'Grocery Scout' : 'Market Ajanı'; ?></h3>
-                        <p style="font-size:12px;color:<?php echo $ait_desc_color; ?>;margin:0;line-height:1.4;">
-                            <?php echo $lang == 'en' 
-                                ? 'Can\'t find your favorite brand? Tell AI what you need and it finds the Turkish equivalent.'
-                                : 'Aradığınız markayı bulamıyor musunuz? Yapay zekaya söyleyin, Türk muadilini bulsun.'; ?>
-                        </p>
-                        <p style="font-size:11px;color:<?php echo $ait_quote_color; ?>;margin:4px 0 0;font-style:italic;">
-                            <?php echo $lang == 'en' 
-                                ? '"What\'s the Turkish version of Bisto gravy granules?"'
-                                : '"İngiltere\'deki Hovis ekmeğinin Türkiye\'deki karşılığı ne?"'; ?>
-                        </p>
-                    </div>
-                    <i class="fas fa-chevron-right" style="color:<?php echo $ait_chevron_color; ?>;font-size:12px;flex-shrink:0;"></i>
-                </a>
-
-                <!-- Menu Master -->
-                <a href="menu_decoder.php" style="display:flex;align-items:center;gap:14px;padding:14px;background:<?php echo $ait_card_bg; ?>;border:1px solid <?php echo $ait_card_border; ?>;border-radius:14px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="width:48px;height:48px;border-radius:12px;background:<?php echo $ait_icon_bg_amber; ?>;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <i class="fas fa-utensils" style="font-size:20px;color:#f59e0b;"></i>
-                    </div>
-                    <div style="flex:1;min-width:0;">
-                        <h3 style="font-size:14px;font-weight:800;margin:0 0 2px;color:<?php echo $ait_title_color; ?>;"><?php echo $lang == 'en' ? 'Menu Master' : 'Menü Gurmesi'; ?></h3>
-                        <p style="font-size:12px;color:<?php echo $ait_desc_color; ?>;margin:0;line-height:1.4;">
-                            <?php echo $lang == 'en' 
-                                ? 'Photo a Turkish menu and AI translates every dish, explains ingredients and suggests what to try.'
-                                : 'Türkçe menüyü fotoğraflayın, yapay zeka her yemeği çevirsin, içindekileri ve önerilerini söylesin.'; ?>
-                        </p>
-                        <p style="font-size:11px;color:<?php echo $ait_quote_color; ?>;margin:4px 0 0;font-style:italic;">
-                            <?php echo $lang == 'en' 
-                                ? '"What is Hünkar Beğendi? Is it spicy?"'
-                                : '"Menüde yazan şeyleri anlamıyorum, fotoğrafını çektim"'; ?>
-                        </p>
-                    </div>
-                    <i class="fas fa-chevron-right" style="color:<?php echo $ait_chevron_color; ?>;font-size:12px;flex-shrink:0;"></i>
-                </a>
-
-                <!-- Pharmacy Pal -->
-                <a href="pharmacy_ai.php" style="display:flex;align-items:center;gap:14px;padding:14px;background:<?php echo $ait_card_bg; ?>;border:1px solid <?php echo $ait_card_border; ?>;border-radius:14px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="width:48px;height:48px;border-radius:12px;background:<?php echo $ait_icon_bg_blue; ?>;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <i class="fas fa-prescription-bottle-alt" style="font-size:20px;color:#3b82f6;"></i>
-                    </div>
-                    <div style="flex:1;min-width:0;">
-                        <h3 style="font-size:14px;font-weight:800;margin:0 0 2px;color:<?php echo $ait_title_color; ?>;"><?php echo $lang == 'en' ? 'Pharmacy Pal' : 'Eczane Yoldaşı'; ?></h3>
-                        <p style="font-size:12px;color:<?php echo $ait_desc_color; ?>;margin:0;line-height:1.4;">
-                            <?php echo $lang == 'en' 
-                                ? 'Need medicine? Describe symptoms or upload a medicine box photo — AI finds the Turkish equivalent.'
-                                : 'İlaç mı lazım? Şikayetinizi anlatın veya ilaç kutusunu fotoğraflayın — Türk muadilini bulsun.'; ?>
-                        </p>
-                        <p style="font-size:11px;color:<?php echo $ait_quote_color; ?>;margin:4px 0 0;font-style:italic;">
-                            <?php echo $lang == 'en' 
-                                ? '"I take Omeprazole 20mg in the UK, what do I ask for here?"'
-                                : '"İngiltere\'de Paracetamol alıyorum, burada hangisini almalıyım?"'; ?>
-                        </p>
-                    </div>
-                    <i class="fas fa-chevron-right" style="color:<?php echo $ait_chevron_color; ?>;font-size:12px;flex-shrink:0;"></i>
-                </a>
-
-                <!-- Culture Lens -->
-                <a href="culture_lens.php" style="display:flex;align-items:center;gap:14px;padding:14px;background:<?php echo $ait_card_bg; ?>;border:1px solid <?php echo $ait_card_border; ?>;border-radius:14px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="width:48px;height:48px;border-radius:12px;background:<?php echo $ait_icon_bg_rose; ?>;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                        <i class="fas fa-landmark" style="font-size:20px;color:#e11d48;"></i>
-                    </div>
-                    <div style="flex:1;min-width:0;">
-                        <h3 style="font-size:14px;font-weight:800;margin:0 0 2px;color:<?php echo $ait_title_color; ?>;"><?php echo $lang == 'en' ? 'Culture Lens' : 'Kültür Rehberi'; ?></h3>
-                        <p style="font-size:12px;color:<?php echo $ait_desc_color; ?>;margin:0;line-height:1.4;">
-                            <?php echo $lang == 'en' 
-                                ? 'Photo any historical site, ruin or artifact — AI tells you its story, age and significance.'
-                                : 'Tarihi yeri, kalıntıyı veya eseri fotoğraflayın — yapay zeka hikayesini, yaşını ve önemini anlatsın.'; ?>
-                        </p>
-                        <p style="font-size:11px;color:<?php echo $ait_quote_color; ?>;margin:4px 0 0;font-style:italic;">
-                            <?php echo $lang == 'en' 
-                                ? '"What are these rock tombs I see on the cliff?"'
-                                : '"Yol kenarında gördüğüm bu kaya mezarları ne?"'; ?>
-                        </p>
-                    </div>
-                    <i class="fas fa-chevron-right" style="color:<?php echo $ait_chevron_color; ?>;font-size:12px;flex-shrink:0;"></i>
                 </a>
 
             </div>
@@ -610,3 +435,5 @@ require_once 'includes/ui_components.php';
 
 </body>
 </html>
+
+

@@ -63,7 +63,7 @@ $approved = $pdo->query("SELECT bl.*, u.username, u.full_name, a.username as app
                     <div style="flex:1;min-width:0;">
                         <div style="font-weight:800;font-size:14px;color:#0f172a;"><?php echo htmlspecialchars($req['name']); ?></div>
                         <div style="font-size:12px;color:#64748b;margin:2px 0;">Sahip: <strong><?php echo htmlspecialchars($req['full_name']); ?></strong> (@<?php echo htmlspecialchars($req['username']); ?>)</div>
-                        <div style="font-size:15px;font-weight:900;color:#3b82f6;"><?php echo htmlspecialchars($req['subdomain']); ?>.kalkansocial.com</div>
+                        <div style="font-size:15px;font-weight:900;color:#3b82f6;"><?php echo htmlspecialchars($req['subdomain']); ?>.<?php echo htmlspecialchars(preg_replace('/^www\./', '', site_host())); ?></div>
                         <div style="font-size:11px;color:#94a3b8;margin-top:2px;">Talep: <?php echo date('d M Y H:i', strtotime($req['subdomain_requested_at'])); ?></div>
                     </div>
                     <div style="display:flex;gap:8px;flex-shrink:0;">
@@ -95,7 +95,7 @@ $approved = $pdo->query("SELECT bl.*, u.username, u.full_name, a.username as app
                         <?php foreach($approved as $item): ?>
                         <tr>
                             <td style="font-weight:700;"><?php echo htmlspecialchars($item['name']); ?></td>
-                            <td><a href="https://<?php echo htmlspecialchars($item['subdomain']); ?>.kalkansocial.com" target="_blank" style="color:#3b82f6;font-weight:700;font-family:monospace;text-decoration:none;"><?php echo htmlspecialchars($item['subdomain']); ?>.kalkansocial.com <i class="fas fa-external-link-alt" style="font-size:10px;"></i></a></td>
+                            <td><a href="https://<?php echo htmlspecialchars($item['subdomain']); ?>.<?php echo htmlspecialchars(preg_replace('/^www\./', '', site_host())); ?>" target="_blank" style="color:#3b82f6;font-weight:700;font-family:monospace;text-decoration:none;"><?php echo htmlspecialchars($item['subdomain']); ?>.<?php echo htmlspecialchars(preg_replace('/^www\./', '', site_host())); ?> <i class="fas fa-external-link-alt" style="font-size:10px;"></i></a></td>
                             <td style="color:#64748b;font-size:13px;"><?php echo htmlspecialchars($item['full_name']); ?></td>
                             <td style="color:#64748b;font-size:13px;">@<?php echo htmlspecialchars($item['approver_username'] ?? 'N/A'); ?></td>
                             <td style="color:#94a3b8;font-size:12px;"><?php echo date('d M Y', strtotime($item['subdomain_approved_at'])); ?></td>

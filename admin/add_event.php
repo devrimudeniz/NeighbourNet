@@ -2,6 +2,7 @@
 require_once 'auth_session.php';
 require_once '../includes/db.php';
 require_once '../includes/optimize_upload.php';
+require_once '../includes/site_settings.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Double check role - security measure
@@ -86,9 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $em->execute([$uid]);
                 $row = $em->fetch(PDO::FETCH_ASSOC);
                 if ($row) {
-                    $site = 'https://' . ($_SERVER['HTTP_HOST'] ?? 'kalkansocial.com');
+                    $site = site_url();
                     $html = "<p>$ev_title</p><p>$ev_body</p><p><a href=\"$site$ev_url\">Etkinliği görüntüle</a></p>";
-                    sendEmail($row['email'], $ev_title . ' - Kalkan Social', $html);
+                    sendEmail($row['email'], $ev_title . ' - ' . site_name(), $html);
                 }
             }
         }
@@ -108,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etkinlik Ekle | Kalkan Social</title>
+    <title>Etkinlik Ekle | <?php echo htmlspecialchars(site_name()); ?></title>
     <?php include '../includes/header_css.php'; ?>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

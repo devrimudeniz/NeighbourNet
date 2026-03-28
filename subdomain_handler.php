@@ -6,6 +6,7 @@
  */
 
 require_once 'includes/db.php';
+require_once 'includes/site_settings.php';
 
 // Get the current host
 $host = $_SERVER['HTTP_HOST'] ?? '';
@@ -49,8 +50,8 @@ if (count($parts) >= 3 && $parts[0] !== 'www') {
                 <p class="text-slate-500 mb-6">
                     The subdomain <strong><?php echo htmlspecialchars($subdomain); ?></strong> does not exist or is not yet approved.
                 </p>
-                <a href="https://kalkansocial.com" class="inline-block bg-violet-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-violet-600 transition-colors">
-                    Go to Kalkan Social
+                <a href="<?php echo htmlspecialchars(site_url()); ?>" class="inline-block bg-violet-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-violet-600 transition-colors">
+                    Go to <?php echo htmlspecialchars(site_name()); ?>
                 </a>
             </div>
         </body>
@@ -61,5 +62,5 @@ if (count($parts) >= 3 && $parts[0] !== 'www') {
 }
 
 // If not a subdomain, redirect to main site
-header('Location: https://kalkansocial.com');
+header('Location: ' . site_url());
 exit();
