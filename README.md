@@ -1,10 +1,8 @@
-# Kalkan Social
+# NeighbourNet
 
-![Kalkan Social Header](./header.webp)
 
 A PHP-based local community platform that brings together social features, events, local guides, business listings, community tools, and utility services for the Kalkan area.
 
-![Kalkan Social Logo](./logo.jpg)
 
 ## Overview
 
