@@ -1,0 +1,23 @@
+# Uploads dizini güvenlik kuralları
+# PHP çalıştırılmasını engelle (shell upload koruması)
+<FilesMatch "\.ph(p[3457]?|t|tml|ar)$">
+    Require all denied
+</FilesMatch>
+
+# Sadece izin verilen dosya türleri
+<FilesMatch "\.(?!(jpg|jpeg|png|gif|webp|mp4|mov|avi|webm|pdf)$)">
+    # Header set Content-Disposition "attachment"
+</FilesMatch>
+
+# PHP engine'i bu dizinde kapat
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+
+# .htaccess override'ı engelle
+<Files ".ht*">
+    Require all denied
+</Files>
+
+# Dizin listelemeyi kapat
+Options -Indexes -ExecCGI

@@ -1,0 +1,9 @@
+{
+  "name": "devrimudeniz/neighbournet",
+  "description": "NeighbourNet community platform",
+  "type": "project",
+  "require": {
+    "php": ">=8.2",
+    "minishlink/web-push": "^10.0"
+  }
+}

@@ -1,0 +1,196 @@
+# Kalkan Social
+
+![Kalkan Social Header](./header.webp)
+
+A PHP-based local community platform that brings together social features, events, local guides, business listings, community tools, and utility services for the Kalkan area.
+
+![Kalkan Social Logo](./logo.jpg)
+
+## Overview
+
+Kalkan Social combines a social feed with practical local services. The project includes public community features, business-focused tools, and an admin panel for moderation and platform management.
+
+Recent GitHub-prep improvements include:
+
+- environment-based secret management via `.env`
+- a new admin `Site Settings` screen
+- cleaner repository defaults for public sharing
+- updated setup documentation for local installs
+
+## Core Features
+
+- Social feed with reactions, comments, reposting, saving, hashtags, and translation
+- User profiles, messaging, notifications, groups, and member discovery
+- Events, guidebooks, jobs, properties, marketplace, and local services
+- Business panel with QR menu and listing management flows
+- Admin panel for approvals, moderation, and system controls
+- Central site branding settings managed from the admin panel
+
+## Repository Cleanup For GitHub
+
+This repository was prepared for public sharing:
+
+- hard-coded API keys, SMTP credentials, OAuth secrets, and push secrets were removed from code
+- real `.env` and FTP client files were removed
+- log, cache, and user upload output paths are now ignored
+- an `.env.example` template was added for new installs
+
+## Stack
+
+- PHP
+- MySQL / MariaDB
+- Tailwind CSS
+- Vanilla JavaScript
+- PHPMailer
+
+## Setup
+
+### 1. Clone the project
+
+```bash
+git clone <repo-url>
+```
+
+Or download the project archive and place it inside your local web root.
+
+### 2. Create your `.env` file
+
+Copy [`.env.example`](./.env.example) to `.env` and fill in your local values.
+
+Example:
+
+```env
+APP_URL=http://localhost/kalkansocial
+SITE_NAME=Kalkan Social
+SITE_SHORT_NAME=KalkanSocial
+
+DB_HOST=127.0.0.1
+DB_NAME=kalkansocial
+DB_USER=root
+DB_PASS=
+
+GEMINI_API_KEY=
+OPENWEATHER_API_KEY=
+COLLECTAPI_KEY=
+EXCHANGERATE_API_KEY=
+```
+
+### 3. Prepare the database
+
+This public repository does not include a full production database dump.
+
+If you already have an internal database export:
+
+1. Create an empty database.
+2. Import your base schema and data dump.
+3. Apply the additional SQL files included in this repository.
+
+At minimum, run:
+
+```sql
+sql/site_settings.sql
+```
+
+Additional schema changes live in:
+
+```text
+sql/
+migrations/
+```
+
+Notes:
+
+- Some helper endpoints create small support tables on demand if they are missing.
+- For a complete local restore, the safest path is to import your internal base schema first and then apply the incremental SQL files from this repo.
+
+### 4. Make runtime folders writable
+
+These folders should be writable by PHP:
+
+```text
+cache/
+uploads/
+```
+
+### 5. Open the admin panel
+
+Admin panel path:
+
+```text
+/admin
+```
+
+The first screen worth checking after setup:
+
+```text
+/admin/site_settings.php
+```
+
+From there you can manage:
+
+- site name
+- short name
+- Turkish tagline
+- English tagline
+- support email
+- contact phone
+- application URL
+
+## Important Environment Variables
+
+### Commonly required
+
+- `APP_URL`
+- `DB_HOST`
+- `DB_NAME`
+- `DB_USER`
+- `DB_PASS`
+
+### Feature-specific
+
+- `GEMINI_API_KEY`
+- `OPENWEATHER_API_KEY`
+- `COLLECTAPI_KEY`
+- `EXCHANGERATE_API_KEY`
+- `SMTP_*`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `FACEBOOK_APP_ID`
+- `FACEBOOK_APP_SECRET`
+- `VAPID_PUBLIC_KEY`
+- `VAPID_PRIVATE_KEY`
+- `ONESIGNAL_APP_ID`
+- `ONESIGNAL_REST_API_KEY`
+
+If these are left empty, the related feature will either stay disabled or fall back gracefully where supported.
+
+## Project Structure
+
+```text
+admin/        Admin panel pages
+api/          AJAX and service endpoints
+includes/     Shared helpers and configuration
+lang/         Language files
+sql/          SQL patches and support tables
+migrations/   Incremental migration files
+assets/       Static frontend assets
+uploads/      User-generated uploads
+cache/        Runtime cache output
+```
+
+## Before You Push To GitHub
+
+- do not commit `.env`
+- do not commit real user uploads
+- do not commit logs or runtime cache output
+- sanitize any private database dump before sharing it
+- replace real branding/contact values with shareable examples if needed
+
+## Documentation
+
+- [FEATURES.md](./FEATURES.md)
+- [feature_roadmap.md](./feature_roadmap.md)
+
+## Notes
+
+This repository is now structured for public sharing. If you are preparing a real public release, do one more manual pass over uploads, screenshots, and any environment-specific assets before publishing.

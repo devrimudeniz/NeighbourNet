@@ -1,0 +1,2 @@
+-- Add email_verified column for registration flow (verify later, not during signup)
+-- Run manually if column doesn't exist: ALTER TABLE users ADD COLUMN email_verified TINYINT(1) DEFAULT 1;

@@ -1,0 +1,4 @@
+-- Place Scout (Mekan Avcısı) badge
+-- Awarded to users who have written reviews for 10+ different directory businesses
+-- No schema change needed: user_badges stores badge_type as string
+-- Run admin/auto_award_badges.php to award the badge to eligible users
